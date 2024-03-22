@@ -765,7 +765,7 @@ describe("IdentityStaking", function () {
 
       await this.identityStaking
         .connect(this.userAccounts[0])
-        .withdrawMultipleCommunityStake(
+        .withdrawMultipleCommunityStakes(
           [this.userAccounts[1].address, this.userAccounts[2].address],
           [100000n, 200000n],
         );
@@ -883,7 +883,7 @@ describe("IdentityStaking", function () {
       // Extend both stakes
       await this.identityStaking
         .connect(staker)
-        .extendMultipleCommunityStake(
+        .extendMultipleCommunityStakes(
           [stakee1.address, stakee2.address],
           [newDuration1, newDuration2],
         );
@@ -939,7 +939,7 @@ describe("IdentityStaking", function () {
         await expect(
           this.identityStaking
             .connect(staker)
-            .extendMultipleCommunityStake([staker.address], [1000000, 2000000]),
+            .extendMultipleCommunityStakes([staker.address], [1000000, 2000000]),
         ).to.be.revertedWithCustomError(
           this.identityStaking,
           "ArrayLengthMismatch",
@@ -1170,7 +1170,7 @@ describe("IdentityStaking", function () {
         await expect(
           this.identityStaking
             .connect(this.userAccounts[0])
-            .withdrawMultipleCommunityStake(
+            .withdrawMultipleCommunityStakes(
               [this.userAccounts[1], this.userAccounts[2]],
               [100000n, 200000n],
             ),
@@ -1207,7 +1207,7 @@ describe("IdentityStaking", function () {
         await expect(
           this.identityStaking
             .connect(this.userAccounts[0])
-            .withdrawMultipleCommunityStake(
+            .withdrawMultipleCommunityStakes(
               [this.userAccounts[1], this.userAccounts[2]],
               [100000n, 200001n],
             ),
